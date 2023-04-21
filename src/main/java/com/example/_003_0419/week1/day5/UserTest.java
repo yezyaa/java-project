@@ -8,8 +8,11 @@ public class UserTest {
         user.age = 20;
 
         User jaesung = new User();
-        jaesung.name = "재성 매니저님";
+        jaesung.name = "재성 매니저";
         jaesung.phoneNumber = "010-1234-5678";
         jaesung.age = 21;
+
+        System.out.printf("%s님은 성인입니까? %s\n", user.name, user.isAdult());
+        System.out.printf("%s님은 성인입니까? %s\n", jaesung.name, jaesung.isAdult());
     }
 }
