@@ -8,9 +8,9 @@ public class Codeup1620 {
         while (num > 0) {
             sum += num % 10;
             num /= 10;
-        }
-        if (sum >= 10) {
-            sum = sum(sum);
+            if (sum >= 10) {
+                sum = sum(sum);
+            }
         }
         return sum;
     }
