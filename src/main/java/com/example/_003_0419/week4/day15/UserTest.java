@@ -1,4 +1,6 @@
-package com.example._003_0419.week4;
+package com.example._003_0419.week4.day15;
+
+import com.example._003_0419.week4.day15.User;
 
 public class UserTest {
     public static void main(String[] args) {
