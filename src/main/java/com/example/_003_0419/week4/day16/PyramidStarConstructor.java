@@ -13,6 +13,17 @@ public class PyramidStarConstructor {
         }
     }
 
+    public String makeALine(int height, int i) {
+        return String.format("%s%s\n", spaceChar.repeat(height - i - 1), "*".repeat(2 * i + 1));
+    }
+
+    public void printPyramidWithSpaceChar(int height, String spaceChar) {
+        // 기능이 3가지
+        for (int i = 0; i < height; i++) {
+            System.out.print(makeALine(height, i));
+        }
+    }
+
     public static void main(String[] args) {
         PyramidStarConstructor pyramidStarConstructor = new PyramidStarConstructor(" "); // argument " "를 넘겨서 초기화
         PyramidStarConstructor pyramidSpaceZero = new PyramidStarConstructor("0"); // argument "0"을 넘겨서 초기화
