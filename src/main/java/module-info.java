@@ -5,4 +5,6 @@ module com.example._003_0419 {
 
     opens com.example._003_0419 to javafx.fxml;
     exports com.example._003_0419;
+    exports com.example._003_0419.miniProject;
+    opens com.example._003_0419.miniProject to javafx.fxml;
 }
