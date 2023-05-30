@@ -2,16 +2,23 @@ package com.example._003_0419.tutoopjdbc;
 
 public class Main {
     public static void main(String[] args) {
-        checkLeapYear();
+        int i = 1700;
+        if (checkLeapYear(i)) {
+            System.out.println(i + "년 : 윤년");
+        } else {
+            System.out.println(i + "년 : 평년");
+        }
     }
 
-    private static void checkLeapYear() {
+    public static boolean checkLeapYear(int year) {
         // 윤년 알아맞추기
-        int year = 2100;
-        if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
-            System.out.println(year + "년 : 윤년");
-        } else {
-            System.out.println(year + "년 : 평년");
-        }
+        return ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+    }
+
+    public static boolean isLeapYear(int year) {
+        if (year % 400 == 0) return true;
+        if (year % 100 == 0) return false;
+        if (year % 4 == 0) return true;
+        return false;
     }
 }

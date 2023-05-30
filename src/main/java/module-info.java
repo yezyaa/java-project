@@ -1,6 +1,7 @@
 module com.example._003_0419 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.junit.jupiter.api;
 
 
     opens com.example._003_0419 to javafx.fxml;
