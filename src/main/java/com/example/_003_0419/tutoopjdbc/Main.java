@@ -43,15 +43,11 @@ public class Main {
     }
 
     public static String is369(int cnt) {
-        String str = "";
         int a = cnt / 10;
         int b = cnt % 10;
-        if (a % 3 == 0 && a != 0) {
-            str += "*";
-        }
-        if (b % 3 == 0 && b != 0) {
-            str += "*";
-        }
-        return str;
+        String str = (b % 3 == 0 && b != 0) ? "*" : "";
+        if (a == 0)
+            return str;
+        return str + is369(a);
     }
 }
