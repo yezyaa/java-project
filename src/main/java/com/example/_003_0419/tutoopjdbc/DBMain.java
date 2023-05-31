@@ -15,7 +15,29 @@ public class DBMain extends BaseDAO {
         System.out.println(dbMain.insertPerson("yui"));
         List<Person> personList = dbMain.findAllPerson();
         System.out.println(personList.toString());
+        System.out.println(dbMain.findByNamePerson("leo"));
 //        dbMain.getCodeName(); // world.db 테이블 데이터 가져오기
+    }
+
+    private Person findByNamePerson(String pname) {
+        String sql = "select id, name from person where name = ?";
+        try {
+            // create a database connection
+            getConn();
+            psmt = conn.prepareStatement(sql);
+            psmt.setString(1, pname);
+            rs = psmt.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                return new Person(id, name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+        return null;
     }
 
     private List<Person> findAllPerson() {
