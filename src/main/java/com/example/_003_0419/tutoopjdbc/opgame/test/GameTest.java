@@ -4,6 +4,7 @@ import com.example._003_0419.tutoopjdbc.opgame.service.OpGame;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  * @author yezy
@@ -26,5 +27,17 @@ public class GameTest {
         assertEquals(2, game.getRemainingAnswers());
         assertEquals("한번 더 해보자", game.getRemainingAnswers());
         assertEquals(true, game.isAnswer(2));
+    }
+
+    @Test
+    public void testRandom() {
+        System.out.println((int)Math.random() * 10);
+    }
+
+    @Test
+    public void testSumMax() {
+        int a = 0;
+        int b = 0;
+        assertTrue(a + b < 10);
     }
 }
