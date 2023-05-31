@@ -1,17 +1,18 @@
 package com.example._003_0419.tutoopjdbc;
 
-import java.sql.*;
+import com.example._003_0419.tutoopjdbc.model.BaseDAO;
 
-public class DBMain {
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class DBMain extends BaseDAO {
     public static void main(String[] args) {
-        initPerson();
-//        getCodeName(); // 기존 테이블 가져옴
+        DBMain dbMain = new DBMain();
+        dbMain.initPerson();
+        dbMain.getCodeName(); // world.db 테이블 데이터 가져오기
     }
-    private static void initPerson() {
-        Connection conn = null;
-        Statement smt = null;
-        PreparedStatement psmt = null;
-        ResultSet rs = null;
+    private void initPerson() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:world.db");
             smt = conn.createStatement();
@@ -31,34 +32,12 @@ public class DBMain {
             System.err.println(e.getMessage());
         }
         finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (smt != null) smt.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (psmt != null) psmt.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            close();
         }
     }
 
-    private static void getCodeName() {
+    private void getCodeName() {
         String sql = "select code, name from country order by code, name";
-        Connection conn = null;
-        PreparedStatement psmt = null;
-        ResultSet rs = null;
         try {
             // create a database connection
             conn = DriverManager.getConnection("jdbc:sqlite:world.db");
@@ -71,11 +50,7 @@ public class DBMain {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            close();
         }
     }
 }
