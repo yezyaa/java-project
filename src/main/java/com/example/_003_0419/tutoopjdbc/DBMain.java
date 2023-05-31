@@ -2,7 +2,6 @@ package com.example._003_0419.tutoopjdbc;
 
 import com.example._003_0419.tutoopjdbc.model.BaseDAO;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -14,7 +13,8 @@ public class DBMain extends BaseDAO {
     }
     private void initPerson() {
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:world.db");
+            // create a database connection
+            getConn();
             smt = conn.createStatement();
             smt.setQueryTimeout(30);  // set timeout to 30 sec.
 
@@ -40,7 +40,7 @@ public class DBMain extends BaseDAO {
         String sql = "select code, name from country order by code, name";
         try {
             // create a database connection
-            conn = DriverManager.getConnection("jdbc:sqlite:world.db");
+            getConn();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()) {
