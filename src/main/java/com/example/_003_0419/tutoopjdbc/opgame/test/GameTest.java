@@ -1,6 +1,7 @@
 package com.example._003_0419.tutoopjdbc.opgame.test;
 
 import com.example._003_0419.tutoopjdbc.opgame.service.OpGame;
+import com.example._003_0419.tutoopjdbc.opgame.service.PlusOperatorLevelOne;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class GameTest {
     @Test
     public void test() {
-        OpGame game = new OpGame();
+        OpGame game = new OpGame(new PlusOperatorLevelOne());
         game.makeQuestion();
         String question = game.getQuestion();
 
@@ -36,8 +37,10 @@ public class GameTest {
 
     @Test
     public void testSumMax() {
-        int a = 0;
-        int b = 0;
+        int max = 10;
+        int a = (int)(Math.random() * max);
+        int b = (int)(Math.random() * (max - a));
+        System.out.printf("%d + %d = %d", a, b, a + b);
         assertTrue(a + b < 10);
     }
 }
