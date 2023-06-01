@@ -3,6 +3,7 @@ module com.example._003_0419 {
     requires javafx.fxml;
     requires org.junit.jupiter.api;
     requires java.sql;
+    requires java.desktop;
 
 
     opens com.example._003_0419 to javafx.fxml;
