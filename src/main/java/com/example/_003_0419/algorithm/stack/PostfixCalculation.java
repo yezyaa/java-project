@@ -24,23 +24,25 @@ public class PostfixCalculation {
                 // token을 int로 변환 => token - '0'
             }
             // TODO 2. 숫자가 아니라면, (연산자) 스택에서 두 번 pop하고 계산한다.
-            int numRight = digitStack.pop();
-            int numLeft = digitStack.pop();
-            switch (token) {
-                case '+':
-                    digitStack.push(numLeft + numRight);
-                    break;
-                case '-':
-                    digitStack.push(numLeft - numRight);
-                    break;
-                case '*':
-                    digitStack.push(numLeft * numRight);
-                    break;
-                case '/':
-                    digitStack.push(numLeft / numRight);
-                    break;
-                default:
-                    throw new IllegalArgumentException("invalid operator");
+            else if (!Character.isDigit(token)) {
+                int numRight = digitStack.pop();
+                int numLeft = digitStack.pop();
+                switch (token) {
+                    case '+':
+                        digitStack.push(numLeft + numRight);
+                        break;
+                    case '-':
+                        digitStack.push(numLeft - numRight);
+                        break;
+                    case '*':
+                        digitStack.push(numLeft * numRight);
+                        break;
+                    case '/':
+                        digitStack.push(numLeft / numRight);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("invalid operator");
+                }
             }
         }
         int answer = digitStack.pop();
