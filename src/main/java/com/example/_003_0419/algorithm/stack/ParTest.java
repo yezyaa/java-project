@@ -1,4 +1,4 @@
-package com.example._003_0419.algorithm;
+package com.example._003_0419.algorithm.stack;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.example._003_0419.algorithm;
+package com.example._003_0419.algorithm.stack;
 
 public class Stack {
     // 스택에 실제 데이터가 저장되는 곳

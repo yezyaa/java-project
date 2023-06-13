@@ -1,4 +1,4 @@
-package com.example._003_0419.algorithm;
+package com.example._003_0419.algorithm.sort;
 
 import java.util.Arrays;
 
